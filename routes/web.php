@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/hello', [WelcomeController::class, 'hello']) ->name('welcome');
+
+Route::get('/add-teacher',[TeacherController::class, 'addTeacher'])->name('insert-teacher-data');
+//PRAKTIKUM 1
+//nomor1
 Route::get('/', function () {
-    return view('welcome');
+    echo "Hi, Welcome to Laravel";
 });
+//nomor2
+Route::get('/about', function () {
+    echo "1941720221 <br>";
+    echo "Milyun Ni'ma Shoumi <br>";
+    echo "TI-2A";
+}) -> name('about');
+//nomor3
+Route::get('/articles/{id}', function ($id) {
+    echo "IThis is Article Pages with ID: ".$id;
+});
+
+//PRAKTIKUM 2
+//Route::get('/', [PageController::class,'index']);
